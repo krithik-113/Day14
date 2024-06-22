@@ -23,9 +23,9 @@ function foodApi() {
 
       // cart
       carted.addEventListener("click", () => {
-        if(!contain.style.display == "block"){
+      
           contain.style.display = "block";
-          innerDiv.style.display = "block";}
+          innerDiv.style.display = "block";
         contain.innerHTML = `<h1>&larr;</h1>`;
           let leftArrow = document.querySelector(".sub-container h1");
           

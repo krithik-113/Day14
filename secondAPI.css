@@ -115,8 +115,8 @@ body {
     >.sub-container h1{
       display: none;
     }
-    >span{
-      margin-right: 10px;
+    >#cart{
+      margin-right: 50px;
     }
     >.container {
       >#order{
