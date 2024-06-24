@@ -5,7 +5,7 @@
   font-family: monospace, sans-serif;
 }
 body {
-  width: 600px;
+  max-width: 600px;
   background-color: rgba(0, 0, 0, 0.756);
   position: relative;
   > header {
@@ -23,11 +23,12 @@ body {
     margin-top: 15px;
     display: inline;
   }
-  > span {
+  > #cart {
     color: rgb(61, 227, 125);
     position: absolute;
     right: 0;
     cursor: pointer;
+    margin-right: 10px;
     text-decoration: underline;
   }
   > .sub-container {
@@ -37,7 +38,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    display: block;
+    display: none;
     text-align: start;
     display: none;
     > .cart-items {
