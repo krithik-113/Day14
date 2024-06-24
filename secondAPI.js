@@ -2,22 +2,25 @@ let div = document.querySelector(".container");
 let contain = document.querySelector(".sub-container");
 let carted = document.getElementById("cart");
 let innerDiv = document.querySelector(".cart-items");
-let img = []
+let img = [] , count = 0
 
-
+let image = document.createElement("img");
+let br = document.createElement("br");
+let minus = document.createElement("button");
 
 function foodApi() {
 
   fetch("https://foodish-api.com/api/")
     .then((response) => response.json())
     .then((result) => {
+      count++;
       div.innerHTML = `<form>
         <button type="submit">Change Food/Refresh</button>
         </form>
         <img src="${result.image}" alt="pic">
-        <button value="${result.image}"id="order" onclick='cartItems(event.target.value)' >ADD to Cart</button>
+        <button value="${result.image}"id="order" onclick='cartItems(event.target.value)' ,${count}>ADD to Cart</button>
         `;
-      
+        
           
         
 
@@ -39,19 +42,38 @@ function foodApi() {
     .catch((err) => console.log(err));
 }
 foodApi();
-
+function lessCount() {
+  if (count == 1) {
+    location.reload();
+  } else {
+    count--;
+    innerDiv.innerHTML = `<p>${count}</p>`;
+    innerDiv.append(image);
+    innerDiv.append(br);
+    innerDiv.append(minus);
+    contain.append(innerDiv);
+    console.log(innerDiv);
+  }
+}
 function cartItems(e = '') {
-  innerDiv.innerHTML = `
-    <img src="${e}" alt="Add anything to display here" ><br>
-    <button id="minus">-</button>
-    `;
-  contain.append(innerDiv)
-  let minusBtn = document.getElementById("minus");
-  minusBtn.onclick = () => {
-    minusBtn.parentElement.innerHTML = ''
+  if (count <= 0) {
+    
+  }else{
+    innerDiv.innerHTML = `<p>${count++}</p>`;
   }
   
+  
+  image.setAttribute("alt", "Add anything to display here");
+  image.src = e
+  minus.setAttribute("id", "minus")
+  minus.setAttribute("onclick","lessCount()")
+  minus.innerText = '-'
+  innerDiv.append(image)
+  innerDiv.append(br)
+  innerDiv.append(minus)
+  
+  contain.append(innerDiv)
+  
+  
 }
-
-cartItems()
 

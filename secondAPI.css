@@ -128,16 +128,24 @@ body {
       display: block;
       width: 25%;
       >.cart-items{ 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        img{
-            margin: 20px 0;
-            width: 200px;
-            height: 200px;
+       position: relative;
+        p{
+          display: inline;
+          position: absolute;
+          color: whitesmoke;
+          font-size: 3.5rem;
+          right: 280x;
+         
+        }
+        >img{
+            margin: 20px auto 0 140px;
+            width: 100px;
+            height: 100px;
+
       }
       >#minus{
-        margin-right: 120px;
+        margin-left: 140px;
+        width: 100px;
       }
     }
     }
