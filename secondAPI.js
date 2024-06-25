@@ -42,9 +42,10 @@ function foodApi() {
     .catch((err) => console.log(err));
 }
 foodApi();
+
 function lessCount() {
   if (count == 1) {
-    location.reload();
+    innerDiv.remove()
   } else {
     count--;
     innerDiv.innerHTML = `<p>${count}</p>`;
